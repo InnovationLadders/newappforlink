@@ -42,14 +42,31 @@ npm run dev
 npm run build
 ```
 
-## إضافة منصة Android
+## بناء تطبيق Android APK
 
+### الطريقة الأولى: استخدام npm scripts (موصى بها)
+```bash
+npm run android:build
+```
+
+### الطريقة الثانية: استخدام سكريبت البناء
+```bash
+./build-android.sh
+```
+
+### الطريقة الثالثة: البناء اليدوي
 ```bash
 npm run build
-npx cap add android
-npx cap sync
-npx cap open android
+npx cap sync android
+cd android
+./gradlew assembleDebug
 ```
+
+سيتم إنشاء ملف APK في: `android/app/build/outputs/apk/debug/app-debug.apk`
+
+## GitHub Actions
+
+يتضمن المشروع ملف workflow يقوم تلقائياً ببناء APK عند الدفع إلى فرع main. يمكنك تحميل ملف APK من تبويب Actions.
 
 ## ملاحظات
 
